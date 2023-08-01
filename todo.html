@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body> 
+  <header class="heading-tag">
+    <button>
+      <a href="Calculator.html" target="_self">Calculator</a>
+    </button>
+    <button>
+      <a href="Interactive.html" target="_self">Number Counter</a>
+    </button>
+    <button>
+      <a href="Main.html" target="_self">Home</a>
+    </button>
+  </header>
+  <div class="container">
+    <h1>Todo-List</h1>
+    <div class="todo-container">
+      <input type="text" id="todo-input" placeholder="Add the things you want to do...">
+      <button onclick="add_Todo()">Add</button>
+    </div>
+    <ul id="todo-list">
+    </ul>
+  </div>
+
+  <style>
+    body {
+    font-family: monospace;
+    background: linear-gradient(90deg, blue, rgb(235, 0, 235), red);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .todo-container{
+    display:flex;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 150px;
+    background: fixed;
+    background:white;
+  }
+
+
+  h1 {
+    text-align: center;
+  }
+  
+  .todo-form {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #09ed2b;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    border: 2px solid black;
+    font-size: large;
+    font-family: monospace;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+.remove-button {
+  background-color: #ff1100;
+  color: #fff;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display:flex;
+  float: right;
+}
+  
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  </style>
+
+  <script>
+  function add_Todo() {
+  const todo_Input = document.getElementById("todo-input");
+  const todo_Text = todo_Input.value.trim();
+  
+  if(todo_Text !== "") {
+    const todo_List = document.getElementById("todo-list");
+    const new_li = document.createElement("li");
+    new_li.innerHTML = `${todo_Text} <button class="remove-button" onclick="removeList(this)">Remove</button>`
+    todo_List.appendChild(new_li);
+    todo_Input.value = "";
+  }
+}
+
+function removeList(removeList){
+  const todo_container = document.getElementById("todo-list");
+  const task_list_items = removeList.parentElement;
+  todo_container.removeChild(task_list_items);
+}
+
+document.getElementById("todo-input").addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    addTodo();
+  }
+});
+
+  </script>
+</body>
+</html>

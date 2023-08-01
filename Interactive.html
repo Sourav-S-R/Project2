@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NumberCounter</title>
+</head>
+
+<body>
+    <header class="heading-tag">
+        <button>
+          <a href="todo.html" target="_self">Todo List</a>
+        </button>
+        <button>
+          <a href="Calculator.html" target="_self">Calculator</a>
+        </button>
+        <button>
+          <a href="Main.html" target="_self">Home</a>
+        </button>
+      </header>
+    <div class="container">
+        <h2>Number Counter</h2>
+        <p id="updateNumber">0</p>
+        <div class="display-counter">
+            <button class="increase-button" onclick="increaseNumber()">Increment</button>
+            <button onclick="decreaseNumber()">Decrement</button>
+            <br>
+            <button id="reset-button" onclick="resetNumber()">Reset</button>
+        </div>
+    </div>
+    <style>
+
+        .heading-tag  a{
+            background-color: rgb(0, 0, 0);
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            border:1px solid black;
+            border-radius: 4px;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(90deg, rgb(54, 205, 79), rgb(13, 12, 12));
+        }
+
+        h2{
+            text-align: center;
+            font-family: monospace;
+            color: white;
+            font-size: xx-large;
+        }
+
+        #updateNumber{
+            text-align: center;
+        }
+
+        .display-counter{
+            display: flex;
+            justify-content: center;
+        }
+
+        .container{
+            background:  white;
+            background: transparent;
+            margin-top: 10px;
+            gap:20px;
+            margin-right: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        p{
+            color:white;
+            font-size:x-large;
+        }
+
+        button{
+            border:1px solid black;
+            border-radius: 10px;
+        }
+
+    </style>
+
+    <script>
+        let num = 0;
+        function increaseNumber(){
+            num++;
+            updateNumber();
+        }
+        function decreaseNumber(){
+            num--;
+            updateNumber();
+        }
+        function resetNumber(){
+            num = 0;
+            updateNumber();
+        }
+        function updateNumber(){
+            const updateNumber = document.getElementById("updateNumber");
+            updateNumber.textContent = num;
+        }
+    </script>
+
+</body>
+</html>
